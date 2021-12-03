@@ -1,0 +1,32 @@
+
+<br>
+Date: <br><input type="text" id="date" name="date" onChange='addTextToImage();'><br>
+Time: <br><input type="text" id="time" name="time" onChange='addTextToImage();'><br>
+<br>
+<b>To download:</b> right click image, save image as..
+<br>
+<br>
+<canvas id="canvas" width="1024" height="1024"></canvas>
+<script>
+
+function addTextToImage(imagePath) {
+    var circle_canvas = document.getElementById("canvas");
+    var context = circle_canvas.getContext("2d");
+
+    // Draw Image function
+    var img = new Image();
+    img.src = "https://i.imgur.com/zojKBXR.jpg";
+    img.onload = function () {
+        context.drawImage(img, 0, 0);
+        context.lineWidth = 1;
+        context.fillStyle = "#000000";
+        context.lineStyle = "#ffff00";
+        context.font = "30px sans-serif";
+        context.fillText(date.value, 420, 510);
+        context.fillText(time.value, 420, 555);
+    };
+}
+
+addTextToImage();
+
+</script>
